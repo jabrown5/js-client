@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+
+<section>
+	<p>Your users are:</p>
+	<article id='users-list'>
+
+	</article>
+</section>
+
+
+<script>
+	var ajaxObj = {
+		url: 'https://js-server-jb.herokuapp.com/users',
+		type: 'get',
+		dataType: 'json',
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	};
+
+	// when the document is ready
+	$(document).ready(function(event) {
+		$.ajax(ajaxObj);
+	});
+</script>
