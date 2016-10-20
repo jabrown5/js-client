@@ -10,11 +10,18 @@
 
 <script>
 	var ajaxObj = {
-		url: 'https://js-server-jb.herokuapp.com/users',
+		url: 'http://js-server-jb.herokuapp.com/users',
 		type: 'get',
 		dataType: 'json',
 		success: function(data) {
 			console.log(data);
+			var list = $('#users-list');
+			for (var user in data) {
+				var account=data[user];
+				var li = $('<li>');
+				$(li).html(account.email + ', ' + account.password);
+				$(list).append(li);
+			}
 		},
 		error: function(err) {
 			console.log(err);
